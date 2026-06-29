@@ -9,9 +9,9 @@
 This project demonstrates the end-to-end design, implementation, and validation of a **simulated enterprise data center** with **Disaster Recovery capabilities** using VMware's virtualization ecosystem.
 
 The lab simulates real-world scenarios such as:
-- **Hardware failure** → Automatic VM failover via Fault Tolerance
-- **Software failure** → VM recovery via vSphere Replication
-- **vCenter Server failure** → vCenter High Availability (HA) failover
+- **Hardware failure** → Automatic VM failover via [Fault Tolerance](https://github.com/ramawahyuk/datacenter-with-DR-capability/blob/main/10-fault-tolerance-setup.md)
+- **Software failure** → VM recovery via [vSphere Replication]()
+- **vCenter Server failure** → [vCenter High Availability (HA) failover]()
 - **Scheduled data protection** → Automated backup via VMware Appliance Management
 
 **Business Context:**  
