@@ -150,25 +150,12 @@ vmware-datacenter-dr-lab/
 │   ├── 08-replication-setup.md      ← vSphere Replication 8.0 deployment
 │   ├── 09-vcenter-ha-setup.md       ← vCenter HA Active/Passive/Witness setup
 │   ├── 10-fault-tolerance-setup.md  ← NFS storage + VM Fault Tolerance config
-│   ├── 11-ideal-datacenter-config.md← Ideal data center criteria & implementation
 │   └── troubleshooting.md           ← Common issues and fixes
 │
 ├── architecture/
 │   ├── lab-topology.md              ← Full topology description
 │   ├── network-diagram.md           ← Network addressing reference
 │   └── dr-flow-diagram.md           ← DR decision flow
-│
-├── scripts/
-│   ├── domain-controller/
-│   │   ├── install-samba.sh         ← Automated Samba AD install
-│   │   ├── configure-dc.sh          ← Domain controller provisioning
-│   │   └── firewall-rules.sh        ← Open required ports
-│   ├── esxi/
-│   │   ├── esxi-baseline-check.sh   ← Pre-install validation
-│   │   └── post-install-verify.sh   ← Post-install health check
-│   └── backup/
-│       ├── ftp-server-setup.ps1     ← Windows FTP server setup (PowerShell)
-│       └── verify-backup.ps1        ← Validate backup files on FTP server
 │
 ├── config/
 │   ├── hosts.example                ← /etc/hosts template for all nodes
@@ -177,14 +164,11 @@ vmware-datacenter-dr-lab/
 │   └── replication-config.md        ← vSphere Replication appliance settings
 │
 ├── runbooks/
-│   ├── DR-backup-restore.md         ← Step-by-step restore runbook
-│   ├── DR-replication-failover.md   ← vSphere Replication failover procedure
-│   ├── DR-vcenter-ha-failover.md    ← vCenter HA failover runbook
-│   └── DR-fault-tolerance.md        ← Fault Tolerance failover procedure
-│
-│
-└── screenshots/
-    └── README.md                    ← Screenshot index and descriptions
+    ├── DR-backup-restore.md         ← Step-by-step restore runbook
+    ├── DR-replication-failover.md   ← vSphere Replication failover procedure
+    ├── DR-vcenter-ha-failover.md    ← vCenter HA failover runbook
+    └── DR-fault-tolerance.md        ← Fault Tolerance failover procedure
+
 ```
 
 ---
