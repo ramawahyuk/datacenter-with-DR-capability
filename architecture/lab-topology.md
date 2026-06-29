@@ -1,3 +1,4 @@
 # System Topology of This Project
 
-<img width="1558" height="1381" alt="TOPOLOGI Jaringan simulasi data center" src="https://github.com/user-attachments/assets/eca75cd8-e411-42f7-82a7-0fb2fca10df3" />
+<img width="4947" height="3155" alt="Sistem_ALL(2020)" src="https://github.com/user-attachments/assets/41534aef-2177-4992-b42c-bc6a6afd8c4b" />
+
