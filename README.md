@@ -2,7 +2,6 @@
 
 > A complete, production-equivalent simulation of an enterprise data center with full Disaster Recovery (DR) capabilities, built using VMware technologies within a virtualized home lab environment.
 
----
 
 ## 📌 Project Overview
 
@@ -21,46 +20,7 @@ Modern enterprises cannot afford unplanned downtime. This project simulates how 
 
 ## 🏗️ Architecture Overview
 
-```mermaid
-graph TD
-    subgraph DC["🏢 Data Center Infrastructure"]
-        DC_CTL["Domain Controller\nCentOS 7 + Samba AD\n192.168.1.10"]
-
-        subgraph VCSA_CLUSTER["VCSA Cluster (Sapcore5)"]
-            VCSA["vCenter Server Appliance 6.7\n192.168.1.100 (VIP)\nActive Node: 192.168.0.1\nPassive Node: 192.168.0.2\nWitness Node: 192.168.0.3"]
-        end
-
-        subgraph SYS_A["Cluster SYS A — Production"]
-            ESXi1["Sapcore1\n192.168.1.34\nESXi 6.5\n16GB RAM | 25GB vSAN"]
-            ESXi2["Sapcore2\n192.168.1.35\nESXi 6.5\n16GB RAM | 25GB vSAN"]
-            ESXi3["Sapcore3\n192.168.1.36\nESXi 6.5\n16GB RAM | 25GB vSAN"]
-        end
-
-        subgraph SYS_B["Cluster SYS B — DR Target"]
-            ESXi4["Sapcore4\n192.168.1.37\nESXi 6.7\n32GB RAM | 250GB"]
-        end
-
-        subgraph STORAGE["Shared Storage"]
-            VSAN["vSAN Datastore\n~75GB shared\n(Flash + Capacity Tier)"]
-            NFS["NFS Datastore\n60GB\n(Fault Tolerance)"]
-        end
-
-        BACKUP["Backup Server\nWindows Server 2012 R2\n192.168.1.99\nFTP Server (IIS)"]
-        REPLICATION["vSphere Replication Appliance\nPhoton OS\n192.168.1.180"]
-    end
-
-    ESXi1 <-->|DSwitch / vSAN| VSAN
-    ESXi2 <-->|DSwitch / vSAN| VSAN
-    ESXi3 <-->|DSwitch / vSAN| VSAN
-    ESXi4 -->|vMotion / Replication| SYS_B
-    VCSA -->|Backup via FTP| BACKUP
-    REPLICATION -->|VM Replication| ESXi4
-    DC_CTL -->|Active Directory / DNS| VCSA
-```
-
----
-
-## 🧩 Component Summary
+> More information about the system archictecture can refer to this [documentation](https://github.com/ramawahyuk/datacenter-with-DR-capability/tree/main/architecture)
 
 | Component | Hostname | IP Address | OS / Version | Role |
 |-----------|----------|------------|--------------|------|
@@ -89,48 +49,6 @@ graph TD
 
 ---
 
-## 📐 Network Design
-
-```mermaid
-graph LR
-    subgraph VMkernel["VMkernel Port Groups"]
-        MGT["Management\nVmk0 (192.168.1.x)"]
-        VMOT["vMotion\nVmk2 (192.168.1.8x)"]
-        VSANNET["vSAN\nVmk3/Vmk1 (192.168.1.7x)"]
-    end
-
-    subgraph SWITCHES["Virtual Switches"]
-        DS["Distributed Switch\n(DstrbtdSwitch)\nSapcore1/2/3"]
-        VS["Standard vSwitch0\nSapcore4/5"]
-    end
-
-    subgraph HANET["vCenter HA Network"]
-        HA["VCENTER_HA Port Group\n192.168.0.x subnet"]
-    end
-
-    DS --> MGT
-    DS --> VMOT
-    DS --> VSANNET
-    VS --> MGT
-    VS --> HA
-```
-
-| Host | VMkernel | Service | IP Address |
-|------|----------|---------|------------|
-| Sapcore1 | Vmk0 | Management | 192.168.1.34 |
-| Sapcore1 | Vmk2 | vMotion | 192.168.1.80 |
-| Sapcore1 | Vmk3 | vSAN | 192.168.1.70 |
-| Sapcore2 | Vmk0 | Management | 192.168.1.35 |
-| Sapcore2 | Vmk2 | vMotion | 192.168.1.81 |
-| Sapcore2 | Vmk3 | vSAN | 192.168.1.71 |
-| Sapcore3 | Vmk0 | Management | 192.168.1.36 |
-| Sapcore3 | Vmk2 | vMotion | 192.168.1.83 |
-| Sapcore3 | Vmk3 | vSAN | 192.168.1.72 |
-| Sapcore4 | Vmk0 | Management | 192.168.1.37 |
-| Sapcore5 | Vmk0 | Management | 192.168.1.28 |
-
----
-
 ## 📁 Repository Structure
 
 ```
@@ -154,8 +72,7 @@ vmware-datacenter-dr-lab/
 │
 ├── architecture/
 │   ├── lab-topology.md              ← Full topology description
-│   ├── network-diagram.md           ← Network addressing reference
-│   └── dr-flow-diagram.md           ← DR decision flow
+│   └── network-diagram.md           ← Network addressing reference
 │
 ├── config/
 │   ├── hosts.example                ← /etc/hosts template for all nodes
@@ -215,6 +132,8 @@ Step 12 →  Run DR tests (testing/alpha-test-results.md)
 ## 📊 Testing Results Summary
 
 ### Alpha Testing (Blackbox — Functional)
+
+> More information regarding the system testing can refer to this [documentation](https://github.com/ramawahyuk/datacenter-with-DR-capability/blob/main/testing/alpha-test-results.md)
 
 | Feature | Correct Input Result | Incorrect Input Result |
 |---------|---------------------|----------------------|
