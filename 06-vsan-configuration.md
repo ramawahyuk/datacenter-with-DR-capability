@@ -27,6 +27,9 @@ A Distributed Switch (dvSwitch) is required so all three hosts share the same vi
 
 1. In vSphere Web Client, right-click the **ASIA** datacenter.
 2. Select **Distributed Switch → New Distributed Switch**.
+
+<img width="647" height="259" alt="image" src="https://github.com/user-attachments/assets/f11924ac-4241-40df-9f0f-ac0c8c25f4aa" />
+
 3. Configure:
    - **Name:** `DstrbtdSwitch`
    - **Version:** Compatible with ESXi 6.5
@@ -50,7 +53,15 @@ A Distributed Switch (dvSwitch) is required so all three hosts share the same vi
 1. Right-click **DstrbtdSwitch** → **Add and Manage Hosts**.
 2. Select **Add hosts**.
 3. Add: `Sapcore1`, `Sapcore2`, `Sapcore3`.
+
+<img width="521" height="320" alt="image" src="https://github.com/user-attachments/assets/1bdbeadf-de1e-4ee0-8d26-6b32133a1cd8" />
+
+
 4. Assign each host's physical NIC as an **uplink** to the Distributed Switch.
+
+<img width="522" height="321" alt="image" src="https://github.com/user-attachments/assets/f8b6e58b-c239-4c06-9806-699f19c6e1f5" />
+
+
 5. Complete the wizard.
 
 ---
@@ -58,6 +69,8 @@ A Distributed Switch (dvSwitch) is required so all three hosts share the same vi
 ## Step 4 — Configure VMkernel Adapters
 
 Create VMkernel adapters for each required service on each host.
+
+
 
 ### VMkernel Adapter Specifications
 
@@ -88,6 +101,9 @@ For each host:
 
 Repeat for each VMkernel adapter on each host.
 
+<img width="600" height="370" alt="image" src="https://github.com/user-attachments/assets/dfc9f554-68a5-4d2b-8811-c52940a75538" />
+
+
 ---
 
 ## Step 5 — Enable vSAN on the Cluster
@@ -105,10 +121,18 @@ Repeat for each VMkernel adapter on each host.
 1. In vSphere Web Client, select **Cluster SYS A**.
 2. Go to **Configure → vSAN → General**.
 3. Click **Configure**.
+
+<img width="674" height="278" alt="image" src="https://github.com/user-attachments/assets/2703ac22-780a-4a68-bfc4-badd753b391b" />
+
+
 4. Select **Hybrid** mode (Flash cache + HDD capacity).
 5. On the disk claiming screen, the system automatically detects and groups:
    - The 10 GB disk as **Cache Tier**
    - The 25 GB disk as **Capacity Tier**
+
+<img width="551" height="372" alt="image" src="https://github.com/user-attachments/assets/4dcbe734-cfa5-4a6d-9a1b-bb8fe262abef" />
+
+
 6. Verify all three hosts have their disks correctly claimed.
 7. Click **Next** → **Finish**.
 
@@ -117,6 +141,9 @@ Repeat for each VMkernel adapter on each host.
 ## Step 6 — Verify vSAN Datastore
 
 After configuration:
+
+<img width="766" height="171" alt="image" src="https://github.com/user-attachments/assets/cffe1a09-9da2-4e2f-80f3-d96a06f1cf91" />
+
 
 1. Go to **Storage → Datastores**.
 2. A new datastore named **vsanDatastore** should appear.
