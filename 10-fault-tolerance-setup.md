@@ -203,25 +203,9 @@ After enabling:
 
 ## How Fault Tolerance Works
 
-```
-Normal operation:
-┌─────────────┐         ┌─────────────┐
-│  Sapcore2   │◄───────►│  Sapcore3   │
-│             │ FT Log  │             │
-│ WIN-7 FT    │ stream  │ WIN-7 FT    │
-│ (Primary)   │         │ (Secondary) │
-│ RUNNING     │         │ IN SYNC     │
-└─────────────┘         └─────────────┘
+<img width="1536" height="1024" alt="FT" src="https://github.com/user-attachments/assets/75c785cd-d9c3-437e-94bc-b53579e93ce6" />
 
-After Sapcore2 failure:
-┌─────────────┐         ┌─────────────┐
-│  Sapcore2   │  (DOWN) │  Sapcore3   │
-│             │         │             │
-│             │         │ WIN-7 FT    │
-│             │         │ (Promoted)  │
-│             │         │ RUNNING     │
-└─────────────┘         └─────────────┘
-```
+
 
 When the primary host fails:
 - The Secondary VM is **instantly promoted** to Primary — no restart, no data loss.
