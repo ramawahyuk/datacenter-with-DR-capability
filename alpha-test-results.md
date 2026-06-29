@@ -80,7 +80,7 @@ S_6.7.0.14000_20191223-165909_
 
 ---
 
-> More information about Backup can see this [documentation](https://github.com/ramawahyuk/datacenter-with-DR-capability/blob/main/07-backup-configuration.md)
+> More information about Backup can see this [documentation](https://github.com/ramawahyuk/datacenter-with-DR-capability/blob/main/docs/07-backup-configuration.md)
 
 ## 2. Restore Testing
 
@@ -199,7 +199,7 @@ Choose the recovery site which is at SYS B
 
 **Result:** ❌ FAIL (expected) — Could not access Site Recovery. Replication process failed.
 
-> More Information about VMware Replication can refer to this [documentation](https://github.com/ramawahyuk/datacenter-with-DR-capability/blob/main/08-replication-setup.md)
+> More Information about VMware Replication can refer to this [documentation](https://github.com/ramawahyuk/datacenter-with-DR-capability/blob/main/docs/08-replication-setup.md)
 ---
 
 ## 4. vCenter HA Failover Testing
@@ -269,7 +269,7 @@ All VCSA VMs powered off.
 
 
 
-> More information about vCenter HA can see this [documentation](https://github.com/ramawahyuk/datacenter-with-DR-capability/blob/main/09-vcenter-ha-setup.md)
+> More information about vCenter HA can see this [documentation](https://github.com/ramawahyuk/datacenter-with-DR-capability/blob/main/docs/09-vcenter-ha-setup.md)
 
 ---
 
@@ -322,7 +322,7 @@ VM set to FT Not Protected (Primary and Secondary both powered off).
 
 **Result:** ❌ FAIL (expected) — FT failover did not complete. VM did not migrate.
 
-> More Information about VMware Fault Tolerance can refer to this [documentation](https://github.com/ramawahyuk/datacenter-with-DR-capability/blob/main/10-fault-tolerance-setup.md)
+> More Information about VMware Fault Tolerance can refer to this [documentation](https://github.com/ramawahyuk/datacenter-with-DR-capability/blob/main/docs/10-fault-tolerance-setup.md)
 
 ---
 
