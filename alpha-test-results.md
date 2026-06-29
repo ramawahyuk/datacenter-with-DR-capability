@@ -266,6 +266,10 @@ All VCSA VMs powered off.
 
 **Result:** ❌ FAIL (expected) — No failover possible. vCenter unavailable.
 
+
+
+> More information about vCenter HA can see this [documentation](https://github.com/ramawahyuk/datacenter-with-DR-capability/blob/main/09-vcenter-ha-setup.md)
+
 ---
 
 ## 5. Fault Tolerance Failover Testing
