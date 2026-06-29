@@ -21,6 +21,45 @@
 
 ---
 
+
+```mermaid
+graph TD
+    subgraph DC["🏢 Data Center Infrastructure"]
+        DC_CTL["Domain Controller\nCentOS 7 + Samba AD\n192.168.1.10"]
+
+        subgraph VCSA_CLUSTER["VCSA Cluster (Sapcore5)"]
+            VCSA["vCenter Server Appliance 6.7\n192.168.1.100 (VIP)\nActive Node: 192.168.0.1\nPassive Node: 192.168.0.2\nWitness Node: 192.168.0.3"]
+        end
+
+        subgraph SYS_A["Cluster SYS A — Production"]
+            ESXi1["Sapcore1\n192.168.1.34\nESXi 6.5\n16GB RAM | 25GB vSAN"]
+            ESXi2["Sapcore2\n192.168.1.35\nESXi 6.5\n16GB RAM | 25GB vSAN"]
+            ESXi3["Sapcore3\n192.168.1.36\nESXi 6.5\n16GB RAM | 25GB vSAN"]
+        end
+
+        subgraph SYS_B["Cluster SYS B — DR Target"]
+            ESXi4["Sapcore4\n192.168.1.37\nESXi 6.7\n32GB RAM | 250GB"]
+        end
+
+        subgraph STORAGE["Shared Storage"]
+            VSAN["vSAN Datastore\n~75GB shared\n(Flash + Capacity Tier)"]
+            NFS["NFS Datastore\n60GB\n(Fault Tolerance)"]
+        end
+
+        BACKUP["Backup Server\nWindows Server 2012 R2\n192.168.1.99\nFTP Server (IIS)"]
+        REPLICATION["vSphere Replication Appliance\nPhoton OS\n192.168.1.180"]
+    end
+
+    ESXi1 <-->|DSwitch / vSAN| VSAN
+    ESXi2 <-->|DSwitch / vSAN| VSAN
+    ESXi3 <-->|DSwitch / vSAN| VSAN
+    ESXi4 -->|vMotion / Replication| SYS_B
+    VCSA -->|Backup via FTP| BACKUP
+    REPLICATION -->|VM Replication| ESXi4
+    DC_CTL -->|Active Directory / DNS| VCSA
+```
+---
+
 ## 📐 Network Design
 
 ```mermaid
