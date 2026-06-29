@@ -199,6 +199,7 @@ Choose the recovery site which is at SYS B
 
 **Result:** ❌ FAIL (expected) — Could not access Site Recovery. Replication process failed.
 
+> More Information about VMware Replication can refer to this [documentation](https://github.com/ramawahyuk/datacenter-with-DR-capability/blob/main/08-replication-setup.md)
 ---
 
 ## 4. vCenter HA Failover Testing
@@ -320,6 +321,8 @@ This is the VM state after we initiate system shutdown, the VM WIN7-FT migrate t
 VM set to FT Not Protected (Primary and Secondary both powered off).
 
 **Result:** ❌ FAIL (expected) — FT failover did not complete. VM did not migrate.
+
+> More Information about VMware Fault Tolerance can refer to this [documentation](https://github.com/ramawahyuk/datacenter-with-DR-capability/blob/main/10-fault-tolerance-setup.md)
 
 ---
 
