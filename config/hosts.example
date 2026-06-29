@@ -1,0 +1,11 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+192.168.1.10 DC.helpy.com DC
+192.168.1.100 vsystem.helpy.com vsystem
+192.168.1.34 sapcore1.helpy.com sapcore1
+192.168.1.35 sapcore2.helpy.com sapcore2
+192.168.1.36 sapcore3.helpy.com sapcore3
+192.168.1.37 sapcore4.helpy.com sapcore4
+192.168.1.28 sapcore5.helpy.com sapcore5
+192.168.1.99 backupsrv.helpy.com backsupsrv
+192.168.1.180 photon-machine.helpy.com photon-machine
