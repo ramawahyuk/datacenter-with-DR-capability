@@ -195,6 +195,9 @@ d /var/run/samba 0755 root root -
 
 ## Step 7 — Provision the Domain Controller
 
+<img width="697" height="752" alt="image" src="https://github.com/user-attachments/assets/bb8e4f39-dd29-4dad-ac54-b3f2ce48fff5" />
+
+
 ```bash
 # Back up the existing krb5.conf
 mv /etc/krb5.conf /etc/krb5.conf.org
