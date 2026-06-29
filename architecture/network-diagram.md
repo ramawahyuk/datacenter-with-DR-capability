@@ -1,7 +1,7 @@
 # Network Diagram of Data Center Simulation with Disaster Recovery Capability
 
 > A full Network diagram within a virtualized lab environment.
----
+
 <img width="3436" height="3089" alt="diagraam jaringan" src="https://github.com/user-attachments/assets/58c89059-c780-43ba-8c06-b3ccb18b3f73" />
 
 
