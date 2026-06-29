@@ -45,11 +45,19 @@ On the Windows Server 2012 R2 client:
 
 Read and accept the VMware End User License Agreement.
 
+<img width="552" height="400" alt="image" src="https://github.com/user-attachments/assets/a108c32d-e67a-41b1-846e-e56c4fb093ba" />
+
+---
+
 ### Step 3 — Select Deployment Type
 
 Select: **Embedded Platform Services Controller**
 
 This deploys vCenter and PSC on the same appliance — appropriate for small to medium environments.
+
+<img width="552" height="400" alt="image" src="https://github.com/user-attachments/assets/739f7e1b-2e23-41d9-a7fa-3656df5ef7b9" />
+
+---
 
 ### Step 4 — Configure Target ESXi Host
 
@@ -64,12 +72,22 @@ Enter the connection details for the ESXi host where VCSA will be installed:
 
 Accept the SSL certificate warning.
 
+<img width="584" height="423" alt="image" src="https://github.com/user-attachments/assets/fedba0f3-a044-4ce1-a220-c5a8d9e34c08" />
+
+---
+
 ### Step 5 — Configure the VCSA Virtual Machine
 
 | Field | Value |
 |-------|-------|
 | VM Name | `VCSA` |
 | Root Password | `(set strong password)` |
+
+
+<img width="600" height="434" alt="image" src="https://github.com/user-attachments/assets/063e7e6c-dabc-4a67-bd23-f5be4518b42c" />
+
+---
+
 
 ### Step 6 — Select Deployment Size
 
@@ -80,10 +98,18 @@ Accept the SSL certificate warning.
 
 > The Tiny size supports up to 10 hosts and 100 VMs — appropriate for this lab.
 
+<img width="615" height="445" alt="image" src="https://github.com/user-attachments/assets/fb32beff-402f-4b47-81cb-dabe40a79fcd" />
+
+
+---
 ### Step 7 — Select Datastore
 
 - Select the available datastore on Sapcore5.
 - Enable **Thin Disk Mode** to conserve storage.
+
+<img width="616" height="445" alt="image" src="https://github.com/user-attachments/assets/5f1f7ac2-b07a-482d-9a4b-f32e96fc5b3f" />
+
+---
 
 ### Step 8 — Configure Network Settings
 
@@ -97,6 +123,10 @@ Accept the SSL certificate warning.
 | Default Gateway | `192.168.1.1` |
 | DNS Servers | `192.168.1.10` |
 | FQDN | `vsystem.helpy.com` |
+
+<img width="663" height="480" alt="image" src="https://github.com/user-attachments/assets/22ab37fd-521c-47dc-a8eb-9784a1f4c0b8" />
+
+---
 
 ### Step 9 — Review and Install (Stage 1)
 
@@ -114,12 +144,20 @@ Stage 2 starts automatically after Stage 1 completes.
 
 Click **Next** to proceed to Stage 2 configuration.
 
+<img width="642" height="445" alt="image" src="https://github.com/user-attachments/assets/eb7cec6e-75f7-4fa8-b7e7-7314f183649e" />
+
+---
+
 ### Step 2 — Configure NTP
 
 | Field | Value |
 |-------|-------|
 | NTP Servers | `1.id.ntp.pool.org`, `2.id.ntp.pool.org` |
 | SSH Access | Enabled (for lab purposes) |
+
+<img width="693" height="480" alt="image" src="https://github.com/user-attachments/assets/c539200a-532b-4605-9839-6e7198bf30dd" />
+
+---
 
 ### Step 3 — Configure SSO
 
@@ -129,13 +167,26 @@ Click **Next** to proceed to Stage 2 configuration.
 | SSO Site Name | `default-first-site` |
 | SSO Password | `(set strong password)` |
 
+<img width="657" height="455" alt="image" src="https://github.com/user-attachments/assets/c1870782-60ab-4947-9911-d478df142361" />
+
+---
+
 ### Step 4 — Review and Finish
 
 Review the complete configuration and click **Finish** to begin Stage 2.
 
+<img width="737" height="510" alt="image" src="https://github.com/user-attachments/assets/1fd0bc05-9085-4c32-802e-832811443fe5" />
+
+
+---
+
 Stage 2 configures all vCenter services. This takes approximately 10–20 minutes.
 
 When complete, the installer displays the VCSA management URL.
+
+
+<img width="670" height="400" alt="image" src="https://github.com/user-attachments/assets/dc4f653a-cd56-475d-a8f4-59056a8265c4" />
+
 
 ---
 
@@ -149,6 +200,7 @@ After deployment:
 Log in with:
 - **Username:** `administrator@vsphere.local`
 - **Password:** *(SSO password set in Stage 2)*
+
 
 ---
 
