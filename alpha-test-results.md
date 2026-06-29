@@ -80,6 +80,8 @@ S_6.7.0.14000_20191223-165909_
 
 ---
 
+> More information about Backup can see this [documentation](https://github.com/ramawahyuk/datacenter-with-DR-capability/blob/main/07-backup-configuration.md)
+
 ## 2. Restore Testing
 
 ### Applications Used
@@ -139,6 +141,9 @@ S_6.7.0.14000_20191223-165909_
 | WIN-10 VM on Cluster SYS B | Not present |
 | DNS Server | Active |
 
+
+
+
 ### Test Case 3.1 — Access Site Recovery (Valid)
 
 | Field | Input |
@@ -156,6 +161,26 @@ S_6.7.0.14000_20191223-165909_
 | Source VM | WIN-10 (Cluster SYS A) |
 | Target Host | Sapcore4 (Cluster SYS B) |
 | DNS | Active |
+
+<img width="311" height="205" alt="image" src="https://github.com/user-attachments/assets/18efdd00-e9ae-4ea9-b7f6-38ad5ff24f13" />
+
+Initial state of the WIN-10 VM is on and it is located at cluster SYS A
+
+<img width="829" height="195" alt="image" src="https://github.com/user-attachments/assets/9095979d-954e-48d2-a231-a99e25c63fa0" />
+
+On the Site Recovery Manager initiate syncronization between two clusters
+
+
+<img width="828" height="356" alt="image" src="https://github.com/user-attachments/assets/aa43120e-758e-4d91-9b69-90f556913633" />
+
+Then we start the recovery 
+
+<img width="513" height="420" alt="image" src="https://github.com/user-attachments/assets/8d7fe68a-3012-4929-a38a-a1c12a370054" />
+
+Choose the recovery site which is at SYS B
+
+<img width="330" height="83" alt="image" src="https://github.com/user-attachments/assets/f63aec4f-bc20-4622-bc49-e9f652142034" />
+
 
 **Result:** ✅ SUCCESS
 
@@ -194,6 +219,9 @@ S_6.7.0.14000_20191223-165909_
 | Ping 192.168.1.100 | Replying |
 | vCenter HA | Active |
 
+<img width="681" height="269" alt="image" src="https://github.com/user-attachments/assets/d27c5c3a-30c7-4688-aedd-7bb8246265b8" />
+
+
 ### Test Case 4.1 — Initiate Failover (Valid)
 
 Action: **Configure → vCenter HA → Initiate Failover → Force immediately → Yes**
@@ -207,11 +235,30 @@ Action: **Configure → vCenter HA → Initiate Failover → Force immediately �
 | Web Client initializing | Browser: "Failover in progress" | ~25 minutes |
 | Full access restored | Browser: vCenter Web Client login page | **~29 minutes 34 seconds** |
 
+We Initiate Failover of VCSA
+<img width="444" height="252" alt="image" src="https://github.com/user-attachments/assets/47f36fa2-b2fc-48e4-b389-9e288063e918" />
+
+Connection from vCenter going up after 1 minute 46 seconds, but vSphere UI still cannot be accessed
+
+<img width="702" height="394" alt="image" src="https://github.com/user-attachments/assets/d638af5d-5476-4110-a624-ee49fe5a4082" />
+
+After 4 minutes and 2 seconds the vSphere UI services already available, but still cannot use it
+
+<img width="707" height="397" alt="image" src="https://github.com/user-attachments/assets/9c2d6897-7869-486e-a8d3-083e2fe53bd4" />
+
+Then the vSphere UI services is up after 29 minutes 34 seconds, and we can access to it.
+
+<img width="748" height="420" alt="image" src="https://github.com/user-attachments/assets/764d363a-2a3f-4d55-b8f0-f0e89071ed4d" />
+
+
 **Result:** ✅ SUCCESS — vCenter HA failover completed. Passive node took over Active role.
 
 Post-failover node state:
 - Old Active (192.168.0.1) → now shows Passive
 - Old Passive (192.168.0.2) → now shows Active
+
+<img width="750" height="365" alt="image" src="https://github.com/user-attachments/assets/d1f35c67-939c-4f09-baaf-39304659dde5" />
+
 
 ### Test Case 4.2 — Failover (Invalid — All Nodes Down)
 
@@ -239,7 +286,15 @@ All VCSA VMs powered off.
 
 ### Test Case 5.1 — Hardware Failure Simulation (Valid)
 
-Action: Power off Sapcore2 (simulating hardware failure with CPU spike to 99%)
+Initialy the WIN-7 FT is active on `sapcore2` 
+
+<img width="642" height="217" alt="image" src="https://github.com/user-attachments/assets/097d0ec1-19fd-489b-af21-62e77361e566" />
+
+
+Action: Power off Sapcore2 (simulating hardware failure with CPU spike to 99% and the host became unresponsive/hang), therefore we need to reboot the host.
+
+<img width="350" height="253" alt="image" src="https://github.com/user-attachments/assets/2ed4ce96-24d4-4d9f-82b7-af4cc41c492c" />
+
 
 **Result:** ✅ SUCCESS
 
@@ -249,6 +304,12 @@ Action: Power off Sapcore2 (simulating hardware failure with CPU spike to 99%)
 | WIN-7 FT after Sapcore2 shutdown | Now running on Sapcore3 |
 | Sapcore2 VM inventory | Empty (Primary VM migrated away) |
 | Downtime | **0 seconds** |
+
+This is the VM state after we initiate system shutdown, the VM WIN7-FT migrate to secondary hosts with zero downtime.
+
+<img width="661" height="278" alt="image" src="https://github.com/user-attachments/assets/482804ba-66a2-4e75-a39a-6a516acf29c6" />
+
+
 
 ### Test Case 5.2 — FT Not Protected (Invalid)
 
