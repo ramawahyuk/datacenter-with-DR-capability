@@ -15,16 +15,7 @@ The lab simulates real-world scenarios such as:
 - **Scheduled data protection** → Automated backup via VMware Appliance Management
 
 **Business Context:**  
-Modern enterprises cannot afford unplanned downtime. This project simulates how a company (PT. Helpy Malindo Makmur) can protect its IT infrastructure using VMware's built-in DR features — providing a reference architecture for real-world DR implementation.
-
-**Beta testing results** (5 enterprise evaluators using Likert scale):
-| DR Feature | Satisfaction Score |
-|------------|-------------------|
-| Disaster Recovery in general | 88% |
-| Replication functionality | 80% |
-| Failover functionality | 84% |
-| Backup functionality | 84% |
-| Overall DR visualization | **96%** |
+Modern enterprises cannot afford unplanned downtime. This project simulates how a company can protect its IT infrastructure using VMware's built-in DR features providing a reference architecture for real-world DR implementation.
 
 ---
 
@@ -191,10 +182,6 @@ vmware-datacenter-dr-lab/
 │   ├── DR-vcenter-ha-failover.md    ← vCenter HA failover runbook
 │   └── DR-fault-tolerance.md        ← Fault Tolerance failover procedure
 │
-├── testing/
-│   ├── alpha-test-results.md        ← Blackbox test results for all DR features
-│   ├── beta-test-results.md         ← User acceptance testing (Likert scale)
-│   └── disaster-scenario-tests.md   ← Hardware & software failure test scenarios
 │
 └── screenshots/
     └── README.md                    ← Screenshot index and descriptions
