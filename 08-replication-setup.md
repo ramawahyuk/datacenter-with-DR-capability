@@ -36,6 +36,9 @@ This guide covers the deployment and configuration of VMware vSphere Replication
 
 ## Installer Files Required
 
+<img width="598" height="301" alt="image" src="https://github.com/user-attachments/assets/38b0f90e-18cc-4ab4-8766-ba393e38e106" />
+
+
 | File | Purpose |
 |------|---------|
 | `vSphere_Replication_OVF10.cert` | Certificate file |
@@ -51,7 +54,15 @@ This guide covers the deployment and configuration of VMware vSphere Replication
 
 1. In vSphere Web Client, right-click **Sapcore1** (192.168.1.34).
 2. Select **Deploy OVF Template**.
+
+<img width="476" height="324" alt="image" src="https://github.com/user-attachments/assets/cd629523-6abd-4184-8c48-25569d979608" />
+
+
 3. Select **Local file** and upload all four installer files listed above.
+
+<img width="601" height="352" alt="image" src="https://github.com/user-attachments/assets/fe6c2c24-969f-4964-a0a2-2e235d8d7d6c" />
+
+
 4. Click **Next**.
 
 ### Step 2 — Name and Location
@@ -90,6 +101,9 @@ Review the OVF template details and accept the license agreement.
 | Destination | `PortGas` |
 
 ### Step 8 — Customize Template
+
+<img width="753" height="439" alt="image" src="https://github.com/user-attachments/assets/bb716a4a-c78a-47f8-980b-6cd89bac422c" />
+
 
 | Field | Value |
 |-------|-------|
