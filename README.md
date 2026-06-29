@@ -159,9 +159,7 @@ vmware-datacenter-dr-lab/
 │
 ├── config/
 │   ├── hosts.example                ← /etc/hosts template for all nodes
-│   ├── samba-smb.conf               ← Samba domain controller config template
-│   ├── vcsa-network.json            ← VCSA network config reference
-│   └── replication-config.md        ← vSphere Replication appliance settings
+│   └── samba-smb.conf               ← Samba domain controller config template
 │
 ├── runbooks/
 │   ├── DR-backup-restore.md         ← Step-by-step restore runbook
