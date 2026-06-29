@@ -164,11 +164,13 @@ vmware-datacenter-dr-lab/
 │   └── replication-config.md        ← vSphere Replication appliance settings
 │
 ├── runbooks/
-    ├── DR-backup-restore.md         ← Step-by-step restore runbook
-    ├── DR-replication-failover.md   ← vSphere Replication failover procedure
-    ├── DR-vcenter-ha-failover.md    ← vCenter HA failover runbook
-    └── DR-fault-tolerance.md        ← Fault Tolerance failover procedure
-
+│   ├── DR-backup-restore.md         ← Step-by-step restore runbook
+│   ├── DR-replication-failover.md   ← vSphere Replication failover procedure
+│   ├── DR-vcenter-ha-failover.md    ← vCenter HA failover runbook
+│   └── DR-fault-tolerance.md        ← Fault Tolerance failover procedure
+│
+└── testing/
+    └── alpha-test-results.md        ← Blackbox test results for all DR
 ```
 
 ---
